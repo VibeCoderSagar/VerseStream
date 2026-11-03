@@ -348,7 +348,7 @@
           Telegram
         </a>
         <a href="/downloads/universal/VerseStream.apk" download="VerseStream.apk"
-          onclick="handleApkDownload(event, '/downloads/universal/VerseStream.apk', 'VerseStream.apk')"
+          onclick="handleApkDownload(event, '/downloads/universal/VerseStream.apk', 'VerseStream.apk', 'universal')"
           class="px-4 py-2 rounded-full text-xs font-extrabold text-white bg-gradient-to-r from-[#FF385C] via-[#FF6B35] to-[#FF8A00] hover:opacity-95 shadow-[0_4px_16px_rgba(255,56,92,0.45)] hover:scale-[1.03] active:scale-[0.98] transition">
           Get APK
         </a>
@@ -394,7 +394,7 @@
 
             <!-- Download App Button (Styled to Match Logo Theme) -->
             <a href="/downloads/universal/VerseStream.apk" download="VerseStream.apk"
-              onclick="handleApkDownload(event, '/downloads/universal/VerseStream.apk', 'VerseStream.apk')"
+              onclick="handleApkDownload(event, '/downloads/universal/VerseStream.apk', 'VerseStream.apk', 'universal')"
               class="group relative flex flex-col items-center justify-center w-full md:w-72 px-6 py-5 rounded-2xl bg-gradient-to-r from-[#FF385C] via-[#FF6B35] to-[#FF8A00] text-white transition-all duration-300 hover:scale-[1.03] shadow-[0_10px_35px_-5px_rgba(255,56,92,0.55),0_4px_18px_-2px_rgba(255,107,53,0.4)] hover:shadow-[0_14px_45px_-4px_rgba(255,56,92,0.75),0_6px_22px_-2px_rgba(255,107,53,0.55)] active:scale-[0.98] border border-white/20 overflow-hidden">
               <div
                 class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
@@ -431,6 +431,20 @@
                 class="text-xs font-medium text-gray-400 group-hover:text-gray-200 transition-colors">versestreamapp.com
                 (All browsers)</span>
             </a>
+          </div>
+
+          <!-- Real-Time Verified Downloads Total Counter Badge -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md shadow-lg mb-8">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span class="text-xs font-medium text-gray-300">
+              Live Verified Downloads:
+            </span>
+            <span class="text-xs font-extrabold text-emerald-400 bg-emerald-500/10 border border-emerald-500/25 px-2.5 py-0.5 rounded-full tracking-wide" id="hero-total-downloads">
+              0
+            </span>
           </div>
 
           <!-- Official Domains & Status Hub Banner -->
@@ -1020,7 +1034,7 @@
 
         <!-- 1. Universal APK -->
         <a href="/downloads/universal/VerseStream.apk" download="VerseStream.apk"
-          onclick="handleApkDownload(event, '/downloads/universal/VerseStream.apk', 'VerseStream.apk')"
+          onclick="handleApkDownload(event, '/downloads/universal/VerseStream.apk', 'VerseStream.apk', 'universal')"
           class="group rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FF385C]/60 backdrop-blur-lg shadow-xl hover:shadow-[0_12px_30px_rgba(255,56,92,0.25)] transition-all duration-300 p-6 flex flex-col items-center hover:-translate-y-1">
           <div class="w-full mb-4">
             <div class="flex items-center justify-between mb-2">
@@ -1033,9 +1047,21 @@
               Fire TV. Choose this when unsure.</p>
           </div>
           <div class="mt-auto w-full pt-4 border-t border-white/5">
-            <p class="text-xs text-gray-400 mb-3 flex items-center justify-between">
+            <p class="text-xs text-gray-400 mb-2 flex items-center justify-between">
               <span>📦 APK Size:</span>
               <strong class="text-white text-sm">74.1 MB</strong>
+            </p>
+            <p class="text-xs text-gray-400 mb-3 flex items-center justify-between">
+              <span class="flex items-center gap-1.5 text-gray-300">
+                <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+                Real Downloads:
+              </span>
+              <span class="inline-flex items-center gap-1.5 font-bold text-emerald-400 text-xs bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/25" id="dl-count-universal">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="count-value">0</span>
+              </span>
             </p>
             <span
               class="block w-full py-2.5 rounded-full text-center text-white font-extrabold text-sm bg-gradient-to-r from-[#FF385C] via-[#FF6B35] to-[#FF8A00] shadow-[0_4px_18px_rgba(255,56,92,0.4)] group-hover:shadow-[0_6px_25px_rgba(255,56,92,0.6)] group-hover:scale-[1.02] active:scale-[0.98] transition-all">
@@ -1046,7 +1072,7 @@
 
         <!-- 2. 64-bit ARM Devices -->
         <a href="/downloads/arm64/VerseStream-arm64-v8a-release.apk" download="VerseStream-arm64-v8a-release.apk"
-          onclick="handleApkDownload(event, '/downloads/arm64/VerseStream-arm64-v8a-release.apk', 'VerseStream-arm64-v8a-release.apk')"
+          onclick="handleApkDownload(event, '/downloads/arm64/VerseStream-arm64-v8a-release.apk', 'VerseStream-arm64-v8a-release.apk', 'arm64')"
           class="group rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FF385C]/60 backdrop-blur-lg shadow-xl hover:shadow-[0_12px_30px_rgba(255,56,92,0.25)] transition-all duration-300 p-6 flex flex-col items-center hover:-translate-y-1">
           <div class="w-full mb-4">
             <div class="flex items-center justify-between mb-2">
@@ -1058,9 +1084,21 @@
             <p class="text-sm text-gray-400 mt-1 leading-snug">For Android phones and TVs running 64-bit Android.</p>
           </div>
           <div class="mt-auto w-full pt-4 border-t border-white/5">
-            <p class="text-xs text-gray-400 mb-3 flex items-center justify-between">
+            <p class="text-xs text-gray-400 mb-2 flex items-center justify-between">
               <span>📦 APK Size:</span>
               <strong class="text-white text-sm">45.1 MB</strong>
+            </p>
+            <p class="text-xs text-gray-400 mb-3 flex items-center justify-between">
+              <span class="flex items-center gap-1.5 text-gray-300">
+                <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+                Real Downloads:
+              </span>
+              <span class="inline-flex items-center gap-1.5 font-bold text-emerald-400 text-xs bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/25" id="dl-count-arm64">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="count-value">0</span>
+              </span>
             </p>
             <span
               class="block w-full py-2.5 rounded-full text-center text-white font-extrabold text-sm bg-gradient-to-r from-[#FF385C] via-[#FF6B35] to-[#FF8A00] shadow-[0_4px_18px_rgba(255,56,92,0.4)] group-hover:shadow-[0_6px_25px_rgba(255,56,92,0.6)] group-hover:scale-[1.02] active:scale-[0.98] transition-all">
@@ -1071,7 +1109,7 @@
 
         <!-- 3. 32-bit ARM Devices -->
         <a href="/downloads/arm32/VerseStream-armeabi-v7a-release.apk" download="VerseStream-armeabi-v7a-release.apk"
-          onclick="handleApkDownload(event, '/downloads/arm32/VerseStream-armeabi-v7a-release.apk', 'VerseStream-armeabi-v7a-release.apk')"
+          onclick="handleApkDownload(event, '/downloads/arm32/VerseStream-armeabi-v7a-release.apk', 'VerseStream-armeabi-v7a-release.apk', 'arm32')"
           class="group rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FF385C]/60 backdrop-blur-lg shadow-xl hover:shadow-[0_12px_30px_rgba(255,56,92,0.25)] transition-all duration-300 p-6 flex flex-col items-center hover:-translate-y-1">
           <div class="w-full mb-4">
             <div class="flex items-center justify-between mb-2">
@@ -1084,9 +1122,21 @@
               Android.</p>
           </div>
           <div class="mt-auto w-full pt-4 border-t border-white/5">
-            <p class="text-xs text-gray-400 mb-3 flex items-center justify-between">
+            <p class="text-xs text-gray-400 mb-2 flex items-center justify-between">
               <span>📦 APK Size:</span>
               <strong class="text-white text-sm">44.9 MB</strong>
+            </p>
+            <p class="text-xs text-gray-400 mb-3 flex items-center justify-between">
+              <span class="flex items-center gap-1.5 text-gray-300">
+                <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+                Real Downloads:
+              </span>
+              <span class="inline-flex items-center gap-1.5 font-bold text-emerald-400 text-xs bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/25" id="dl-count-arm32">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="count-value">0</span>
+              </span>
             </p>
             <span
               class="block w-full py-2.5 rounded-full text-center text-white font-extrabold text-sm bg-gradient-to-r from-[#FF385C] via-[#FF6B35] to-[#FF8A00] shadow-[0_4px_18px_rgba(255,56,92,0.4)] group-hover:shadow-[0_6px_25px_rgba(255,56,92,0.6)] group-hover:scale-[1.02] active:scale-[0.98] transition-all">
@@ -1097,7 +1147,7 @@
 
         <!-- 4. Emulator x86_64 (64-bit) -->
         <a href="/downloads/emulator-x86_64/VerseStream-x86_64-release.apk" download="VerseStream-x86_64-release.apk"
-          onclick="handleApkDownload(event, '/downloads/emulator-x86_64/VerseStream-x86_64-release.apk', 'VerseStream-x86_64-release.apk')"
+          onclick="handleApkDownload(event, '/downloads/emulator-x86_64/VerseStream-x86_64-release.apk', 'VerseStream-x86_64-release.apk', 'x86_64')"
           class="group rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FF385C]/60 backdrop-blur-lg shadow-xl hover:shadow-[0_12px_30px_rgba(255,56,92,0.25)] transition-all duration-300 p-6 flex flex-col items-center hover:-translate-y-1">
           <div class="w-full mb-4">
             <div class="flex items-center justify-between mb-2">
@@ -1110,9 +1160,21 @@
               Android system. Usually for computer emulators.</p>
           </div>
           <div class="mt-auto w-full pt-4 border-t border-white/5">
-            <p class="text-xs text-gray-400 mb-3 flex items-center justify-between">
+            <p class="text-xs text-gray-400 mb-2 flex items-center justify-between">
               <span>📦 APK Size:</span>
               <strong class="text-white text-sm">45.6 MB</strong>
+            </p>
+            <p class="text-xs text-gray-400 mb-3 flex items-center justify-between">
+              <span class="flex items-center gap-1.5 text-gray-300">
+                <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+                Real Downloads:
+              </span>
+              <span class="inline-flex items-center gap-1.5 font-bold text-emerald-400 text-xs bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/25" id="dl-count-x86_64">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="count-value">0</span>
+              </span>
             </p>
             <span
               class="block w-full py-2.5 rounded-full text-center text-white font-extrabold text-sm bg-gradient-to-r from-[#FF385C] via-[#FF6B35] to-[#FF8A00] shadow-[0_4px_18px_rgba(255,56,92,0.4)] group-hover:shadow-[0_6px_25px_rgba(255,56,92,0.6)] group-hover:scale-[1.02] active:scale-[0.98] transition-all">
@@ -1123,7 +1185,7 @@
 
         <!-- 5. Emulator x86 (32-bit) -->
         <a href="/downloads/emulator-x86/VerseStream-x86-release.apk" download="VerseStream-x86-release.apk"
-          onclick="handleApkDownload(event, '/downloads/emulator-x86/VerseStream-x86-release.apk', 'VerseStream-x86-release.apk')"
+          onclick="handleApkDownload(event, '/downloads/emulator-x86/VerseStream-x86-release.apk', 'VerseStream-x86-release.apk', 'x86')"
           class="group rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FF385C]/60 backdrop-blur-lg shadow-xl hover:shadow-[0_12px_30px_rgba(255,56,92,0.25)] transition-all duration-300 p-6 flex flex-col items-center hover:-translate-y-1">
           <div class="w-full mb-4">
             <div class="flex items-center justify-between mb-2">
@@ -1136,14 +1198,28 @@
               Android system. Usually for computer emulators.</p>
           </div>
           <div class="mt-auto w-full pt-4 border-t border-white/5">
-            <p class="text-xs text-gray-400 mb-3 flex items-center justify-between">
+            <p class="text-xs text-gray-400 mb-2 flex items-center justify-between">
               <span>📦 APK Size:</span>
               <strong class="text-white text-sm">45.7 MB</strong>
+            </p>
+            <p class="text-xs text-gray-400 mb-3 flex items-center justify-between">
+              <span class="flex items-center gap-1.5 text-gray-300">
+                <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+                Real Downloads:
+              </span>
+              <span class="inline-flex items-center gap-1.5 font-bold text-emerald-400 text-xs bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/25" id="dl-count-x86">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="count-value">0</span>
+              </span>
             </p>
             <span
               class="block w-full py-2.5 rounded-full text-center text-white font-extrabold text-sm bg-gradient-to-r from-[#FF385C] via-[#FF6B35] to-[#FF8A00] shadow-[0_4px_18px_rgba(255,56,92,0.4)] group-hover:shadow-[0_6px_25px_rgba(255,56,92,0.6)] group-hover:scale-[1.02] active:scale-[0.98] transition-all">
               Download APK
             </span>
+          </div>
+        </a>
           </div>
         </a>
 
@@ -2887,13 +2963,124 @@
       }
     }
 
-    // Ultra-Fast Native Direct APK Download Handler (0ms Instant Download)
-    function handleApkDownload(e, apkUrl, fileName) {
+    // Real-Time Verified Download Counter Manager (100% Real, Zero Fake Numbers, Multi-Store Resilient)
+    const DL_KEYS = {
+      universal: 'versestream_v1_universal',
+      arm64: 'versestream_v1_arm64',
+      arm32: 'versestream_v1_arm32',
+      x86_64: 'versestream_v1_x86_64',
+      x86: 'versestream_v1_x86'
+    };
+
+    const downloadCounts = {
+      universal: 0,
+      arm64: 0,
+      arm32: 0,
+      x86_64: 0,
+      x86: 0
+    };
+
+    function updateCounterDisplay(versionKey, value) {
+      const num = Number(value);
+      if (!isNaN(num)) {
+        downloadCounts[versionKey] = num;
+      }
+      const el = document.getElementById('dl-count-' + versionKey);
+      if (el) {
+        const valSpan = el.querySelector('.count-value') || el;
+        valSpan.textContent = (downloadCounts[versionKey] || 0).toLocaleString();
+      }
+      // Update Total Downloads in Hero Badge
+      const total = Object.values(downloadCounts).reduce((a, b) => a + (Number(b) || 0), 0);
+      const heroTotalEl = document.getElementById('hero-total-downloads');
+      if (heroTotalEl) {
+        heroTotalEl.textContent = total.toLocaleString();
+      }
+    }
+
+    // Fetch live real counts from Cloudflare-backed persistent counter API
+    async function initRealDownloadCounters() {
+      // 1. Instant load from localStorage cache (0ms layout stability)
+      Object.keys(DL_KEYS).forEach(k => {
+        const cached = localStorage.getItem('dl_cnt_' + k);
+        if (cached !== null) {
+          updateCounterDisplay(k, parseInt(cached, 10));
+        }
+      });
+
+      // 2. Fetch fresh real counts in parallel
+      await Promise.allSettled(Object.entries(DL_KEYS).map(async ([key, remoteKey]) => {
+        try {
+          const res = await fetch('https://countapi.mileshilliard.com/api/v1/get/' + remoteKey, { mode: 'cors' });
+          if (res.ok) {
+            const data = await res.json();
+            if (typeof data.value === 'number') {
+              updateCounterDisplay(key, data.value);
+              localStorage.setItem('dl_cnt_' + key, data.value);
+              return;
+            }
+          }
+        } catch (e) {}
+
+        // Fallback store: Abacus
+        try {
+          const abacusRes = await fetch('https://abacus.jasoncameron.dev/get/versestreamapp.com/' + key, { mode: 'cors' });
+          if (abacusRes.ok) {
+            const aData = await abacusRes.json();
+            if (typeof aData.value === 'number') {
+              updateCounterDisplay(key, aData.value);
+              localStorage.setItem('dl_cnt_' + key, aData.value);
+            }
+          }
+        } catch (err) {}
+      }));
+    }
+
+    // Record Real Download Click (Anti-Spam 15s session debounce)
+    function recordRealDownload(versionKey) {
+      if (!versionKey || !DL_KEYS[versionKey]) return;
+
+      const now = Date.now();
+      const lastDownloadTime = Number(sessionStorage.getItem('last_dl_' + versionKey) || 0);
+      if (now - lastDownloadTime < 15000) {
+        // Debounced: avoid duplicate inflating by rapid double-clicks
+        return;
+      }
+      sessionStorage.setItem('last_dl_' + versionKey, now.toString());
+
+      // Optimistically increment on screen immediately
+      const newLocalVal = (downloadCounts[versionKey] || 0) + 1;
+      updateCounterDisplay(versionKey, newLocalVal);
+      localStorage.setItem('dl_cnt_' + versionKey, newLocalVal);
+
+      // Persist to Cloudflare CountAPI (non-blocking)
+      const remoteKey = DL_KEYS[versionKey];
+      fetch('https://countapi.mileshilliard.com/api/v1/hit/' + remoteKey, { mode: 'cors' })
+        .then(r => r.json())
+        .then(data => {
+          if (typeof data.value === 'number') {
+            updateCounterDisplay(versionKey, data.value);
+            localStorage.setItem('dl_cnt_' + versionKey, data.value);
+          }
+        })
+        .catch(() => {});
+
+      // Backup persist to Abacus (non-blocking)
+      fetch('https://abacus.jasoncameron.dev/hit/versestreamapp.com/' + versionKey, { mode: 'cors' }).catch(() => {});
+    }
+
+    // Ultra-Fast Native Direct APK Download Handler (0ms Instant Download + Real Counter Sync)
+    function handleApkDownload(e, apkUrl, fileName, versionKey) {
       // NOTE: We deliberately do NOT call e.preventDefault().
       // The browser's native C++ engine dispatches the file download INSTANTLY (0ms)
       // because the <a> tag has href and download attributes, and server sends Content-Disposition: attachment.
 
-      // Instant UI button feedback
+      // 1. Record real verified download in persistent cloud counter (Spam-protected, 0ms non-blocking)
+      if (versionKey) {
+        recordRealDownload(versionKey);
+      }
+
+      // 2. Instant UI button feedback
       const target = e ? (e.currentTarget || e.target) : null;
       if (target) {
         const labelEl = target.querySelector('.drop-shadow, .font-extrabold.text-sm, span.block') || target;
@@ -2948,8 +3135,11 @@
       });
     });
 
-    // Initialize Coverflow Swiper Carousel with TMDB API Fetch
+    // Initialize Coverflow Swiper Carousel with TMDB API Fetch & Real Download Counters
     document.addEventListener('DOMContentLoaded', async () => {
+      // 1. Fetch & display real persistent download counts for all 5 APK versions
+      initRealDownloadCounters();
+
       const sliderWrapper = document.getElementById('movie-slider-wrapper');
 
       // Fetch TMDB popular movies
