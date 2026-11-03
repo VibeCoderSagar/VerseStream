@@ -39,6 +39,14 @@
   <!-- WhatsApp & Legacy Social Share Preview Fallback -->
   <link rel="image_src" href="https://versestreamapp.com/assets/versestream-banner.jpg" />
 
+  <!-- Vercel Web Analytics & Speed Insights (Native Static Edge Integration) -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+
   <!-- Canonical & PWA Meta -->
   <link rel="canonical" href="https://versestreamapp.com/" />
   <meta name="theme-color" content="#FF385C" />
@@ -3101,6 +3109,19 @@
           }, 3500);
         }
       }
+
+      // 3. Track custom event in Vercel Web Analytics
+      try {
+        if (typeof window.va === 'function') {
+          window.va('event', {
+            name: 'apk_download',
+            data: {
+              version: versionKey || 'unknown',
+              file: fileName || apkUrl.split('/').pop()
+            }
+          });
+        }
+      } catch (err) {}
     }
 
     // Initialize Hero Phone Infinite 3-Card Spotlight Slider
