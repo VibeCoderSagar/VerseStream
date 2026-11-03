@@ -4,9 +4,13 @@
   "updateUrl": "https://versestreamapp.com/downloads/universal/VerseStream.apk",
   "updateUrls": {
     "arm64-v8a": "https://versestreamapp.com/downloads/arm64/VerseStream-arm64-v8a-release.apk",
+    "arm64": "https://versestreamapp.com/downloads/arm64/VerseStream-arm64-v8a-release.apk",
     "armeabi-v7a": "https://versestreamapp.com/downloads/arm32/VerseStream-armeabi-v7a-release.apk",
+    "arm32": "https://versestreamapp.com/downloads/arm32/VerseStream-armeabi-v7a-release.apk",
     "x86_64": "https://versestreamapp.com/downloads/emulator-x86_64/VerseStream-x86_64-release.apk",
+    "emulator-x86_64": "https://versestreamapp.com/downloads/emulator-x86_64/VerseStream-x86_64-release.apk",
     "x86": "https://versestreamapp.com/downloads/emulator-x86/VerseStream-x86-release.apk",
+    "emulator-x86": "https://versestreamapp.com/downloads/emulator-x86/VerseStream-x86-release.apk",
     "universal": "https://versestreamapp.com/downloads/universal/VerseStream.apk"
   },
   "changelog": "VerseStream v1.0 Release:\n• Ad streaming optimized\n• Bug fixes & performance improvements",
