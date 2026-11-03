@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://viewverse.space/sitemap.xml
-
+Sitemap: https://versestreamapp.com/sitemap.xml

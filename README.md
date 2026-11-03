@@ -3,31 +3,32 @@
   <img src="assets/logo.png" alt="VerseStream Logo" width="120" style="border-radius: 28px; box-shadow: 0 10px 30px rgba(255, 56, 92, 0.4);" />
 
   # VerseStream (v1.0)
-  ### Watch Anything, Anytime — Modern Cross-Platform Media Player Web UI
+  ### Official Open-Source Streaming Media Engine | Android, Android TV & Fire TV
 
-  [![Live Website](https://img.shields.io/badge/Live_Site-GitHub_Pages-FF385C?style=for-the-badge&logo=googlechrome&logoColor=white)](https://VibeCoderSagar.github.io/VerseStream/)
+  [![Official Website](https://img.shields.io/badge/Official_Site-versestreamapp.com-FF385C?style=for-the-badge&logo=googlechrome&logoColor=white)](https://versestreamapp.com)
+  [![Vercel Deployment](https://img.shields.io/badge/Deployment-Vercel_Ready-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://versestreamapp.com)
   [![Telegram](https://img.shields.io/badge/Community-Telegram-0088cc?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/viewverseofficial)
-  [![Platform](https://img.shields.io/badge/Platform-Android_%7C_Android_TV_%7C_Fire_TV-2ea44f?style=for-the-badge&logo=android&logoColor=white)](https://VibeCoderSagar.github.io/VerseStream/#download-app)
+  [![Platform](https://img.shields.io/badge/Platform-Android_%7C_Android_TV_%7C_Fire_TV-2ea44f?style=for-the-badge&logo=android&logoColor=white)](https://versestreamapp.com/#download-app)
 
   <p align="center">
-    <b>A high-performance, sleek modern landing page and web showcase for the VerseStream media player application across Android phones, tablets, Android TV, Fire TV, and PC browsers.</b>
+    <b>VerseStream is purely an open-source media player/stream engine, we do not host or upload any media. A high-performance, sleek modern landing page and APK distribution hub for Android phones, Android TV, Fire TV, and PC browsers.</b>
   </p>
 
 </div>
 
 ---
 
-## 📲 APK Downloads & Community Hub
+## 📲 APK Downloads & Builds
 
-Get the official VerseStream builds directly through our official channels:
+Download the latest stable APK release directly from our official portal:
 
-| Package Variant | Architecture / Target | APK Size | Download Channel |
+| Package Variant | Architecture / Target | APK Size | Direct Download |
 | :--- | :--- | :--- | :--- |
-| 🌟 **Universal APK** *(Recommended)* | All Android Phones & TVs | **74.1 MB** | [⬇️ Get on Telegram](https://t.me/viewverseofficial) |
-| ⚡ **64-bit ARM** | `arm64-v8a` (Modern Devices) | **45.1 MB** | [⬇️ Get on Telegram](https://t.me/viewverseofficial) |
-| 📱 **32-bit ARM** | `armeabi-v7a` (Legacy Devices) | **44.9 MB** | [⬇️ Get on Telegram](https://t.me/viewverseofficial) |
-| 💻 **Emulator x86_64** | 64-bit PC / Mac Emulators | **45.6 MB** | [⬇️ Get on Telegram](https://t.me/viewverseofficial) |
-| 🖥️ **Emulator x86** | 32-bit PC Emulators | **45.7 MB** | [⬇️ Get on Telegram](https://t.me/viewverseofficial) |
+| 🌟 **Universal APK** *(Recommended)* | All Android Phones & TVs | **74.1 MB** | [⬇️ Download VerseStream.apk](https://versestreamapp.com/downloads/universal/VerseStream.apk) |
+| ⚡ **64-bit ARM** | `arm64-v8a` (Modern Devices) | **45.1 MB** | [⬇️ Download ARM64 APK](https://versestreamapp.com/downloads/arm64/VerseStream-arm64-v8a-release.apk) |
+| 📱 **32-bit ARM** | `armeabi-v7a` (Legacy Devices) | **44.9 MB** | [⬇️ Download ARM32 APK](https://versestreamapp.com/downloads/arm32/VerseStream-armeabi-v7a-release.apk) |
+| 💻 **Emulator x86_64** | 64-bit PC / Mac Emulators | **45.6 MB** | [⬇️ Download x86_64 APK](https://versestreamapp.com/downloads/emulator-x86_64/VerseStream-x86_64-release.apk) |
+| 🖥️ **Emulator x86** | 32-bit PC Emulators | **45.7 MB** | [⬇️ Download x86 APK](https://versestreamapp.com/downloads/emulator-x86/VerseStream-x86-release.apk) |
 
 ---
 
@@ -82,12 +83,14 @@ Get the official VerseStream builds directly through our official channels:
 
 ## 🚀 Official Channels & Links
 
-- 🌐 **Official Website / Live Landing Page**: [https://VibeCoderSagar.github.io/VerseStream/](https://VibeCoderSagar.github.io/VerseStream/)
-- 🎬 **Web Player**: [https://viewverse.space](https://viewverse.space)
+- 🌐 **Official Website**: [https://versestreamapp.com](https://versestreamapp.com)
+- 🎬 **Web Stream Portal**: [https://versestreamapp.com](https://versestreamapp.com)
 - ✈️ **Telegram Community Channel**: [https://t.me/viewverseofficial](https://t.me/viewverseofficial)
+- 📧 **Contact & Support**: [contact@versestreamapp.com](mailto:contact@versestreamapp.com)
+- ⚖️ **DMCA Agent**: [dmca@versestreamapp.com](mailto:dmca@versestreamapp.com)
 
 ---
 
-## 📄 License & Legal Notice
+## 📄 Legal & Compliance Notice
 
-VerseStream is developed for personal media management and client-side playback. All media streams are aggregated via community scrapers without hosting copyrighted materials. See [terms-of-use.html](terms-of-use.html) and [privacy-policy.html](privacy-policy.html) for full details.
+> **Important Disclaimer:** VerseStream is purely an open-source media player/stream engine, we do not host or upload any media. VerseStream functions strictly as a client-side media playback engine. We do not own, store, or transmit copyrighted files on our servers. All metadata and poster assets are populated via TMDB API under fair-use guidelines. For questions or copyright inquiries, see [terms-of-use.html](terms-of-use.html) and [privacy-policy.html](privacy-policy.html).
