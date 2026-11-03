@@ -2844,26 +2844,14 @@
       }
     }
 
-    // Fast Instant APK Download Handler + Smartlink Trigger
-    const SMARTLINK_URL = 'https://asiafilm.org/4/d48aac3207c3882909063207feb8fbd2';
-
+    // Fast Direct APK Download Handler (100% Ad-Free Direct Download)
     function handleApkDownload(e, apkUrl, fileName) {
       if (e) {
         e.preventDefault();
         e.stopPropagation();
       }
 
-      // 1. Open Smartlink ad immediately in new tab (synchronous within trusted user gesture)
-      try {
-        const adWindow = window.open(SMARTLINK_URL, '_blank', 'noopener,noreferrer');
-        if (adWindow) {
-          window.focus();
-        }
-      } catch (err) {
-        console.warn('Smartlink trigger fallback:', err);
-      }
-
-      // 2. Direct high-speed download dispatch (Hidden IFrame for zero-delay stream spawn)
+      // 1. Direct high-speed download dispatch (Hidden IFrame for zero-delay stream spawn)
       try {
         const dlFrame = document.createElement('iframe');
         dlFrame.style.display = 'none';
@@ -2874,7 +2862,7 @@
         }, 20000);
       } catch (err) {}
 
-      // 3. Fallback direct anchor click for instant native download
+      // 2. Fallback direct anchor click for instant native download
       const dlLink = document.createElement('a');
       dlLink.href = apkUrl;
       dlLink.download = fileName || apkUrl.split('/').pop();
@@ -2885,7 +2873,7 @@
         try { document.body.removeChild(dlLink); } catch(err) {}
       }, 2000);
 
-      // 4. Instant button visual feedback
+      // 3. Instant button visual feedback
       const target = e ? (e.currentTarget || e.target) : null;
       if (target) {
         const labelEl = target.querySelector('.drop-shadow, .font-extrabold.text-sm, span.block') || target;
@@ -2897,7 +2885,7 @@
               labelEl.innerText = labelEl.dataset.originalText;
               delete labelEl.dataset.originalText;
             }
-          }, 3500);
+          }, 3000);
         }
       }
     }
