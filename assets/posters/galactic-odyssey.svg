@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="spaceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#03040B" />
+      <stop offset="50%" stop-color="#0a0e27" />
+      <stop offset="100%" stop-color="#190d35" />
+    </linearGradient>
+    <radialGradient id="nebulaBlue" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#00D2FF" stop-opacity="0.5" />
+      <stop offset="50%" stop-color="#6366F1" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="nebulaPurple" cx="70%" cy="65%" r="50%">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.4" />
+      <stop offset="60%" stop-color="#3B82F6" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="planetRing" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00D2FF" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#8B5CF6" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#EC4899" stop-opacity="0.8" />
+    </linearGradient>
+    <radialGradient id="planetBody" cx="35%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="40%" stop-color="#0f172a" />
+      <stop offset="85%" stop-color="#020617" />
+      <stop offset="100%" stop-color="#00D2FF" stop-opacity="0.3" />
+    </radialGradient>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="400" height="600" fill="url(#spaceGrad)" />
+  <rect width="400" height="600" fill="url(#nebulaBlue)" />
+  <rect width="400" height="600" fill="url(#nebulaPurple)" />
+
+  <!-- Starfield -->
+  <g fill="#ffffff">
+    <circle cx="30" cy="40" r="1.5" opacity="0.9" />
+    <circle cx="95" cy="120" r="1" opacity="0.6" />
+    <circle cx="160" cy="60" r="1.8" opacity="0.8" />
+    <circle cx="230" cy="150" r="1.2" opacity="0.7" />
+    <circle cx="310" cy="70" r="2" opacity="0.95" />
+    <circle cx="360" cy="180" r="1" opacity="0.6" />
+    <circle cx="50" cy="240" r="1.5" opacity="0.8" />
+    <circle cx="370" cy="330" r="1.3" opacity="0.7" />
+    <circle cx="80" cy="480" r="1.2" opacity="0.5" />
+    <circle cx="330" cy="470" r="1.6" opacity="0.9" />
+  </g>
+
+  <!-- Giant Ringed Exoplanet -->
+  <!-- Ring Back Segment -->
+  <ellipse cx="200" cy="270" rx="175" ry="38" fill="none" stroke="url(#planetRing)" stroke-width="12" opacity="0.5" transform="rotate(-18 200 270)" />
+  
+  <!-- Planet Core -->
+  <circle cx="200" cy="270" r="90" fill="url(#planetBody)" />
+  <circle cx="200" cy="270" r="90" fill="none" stroke="#00D2FF" stroke-width="1.5" opacity="0.4" />
+  
+  <!-- Ring Front Segment with Atmosphere Glow -->
+  <path d="M 35 295 C 100 375, 300 375, 365 245" fill="none" stroke="url(#planetRing)" stroke-width="14" opacity="0.9" filter="url(#softGlow)" />
+  <path d="M 60 290 C 120 360, 280 360, 340 250" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6" />
+
+  <!-- Space Station Silhouette in Distance -->
+  <g transform="translate(290, 130) scale(0.6)">
+    <circle cx="20" cy="20" r="8" fill="#00D2FF" filter="url(#softGlow)" />
+    <line x1="-15" y1="20" x2="55" y2="20" stroke="#00D2FF" stroke-width="2" />
+    <rect x="-15" y="10" width="10" height="20" fill="#38BDF8" />
+    <rect x="45" y="10" width="10" height="20" fill="#38BDF8" />
+  </g>
+
+  <!-- Typography / Info Overlay -->
+  <rect x="24" y="24" width="76" height="22" rx="4" fill="#6366F1" fill-opacity="0.2" stroke="#6366F1" stroke-width="1" />
+  <text x="62" y="39" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#A5B4FC" text-anchor="middle" letter-spacing="1">IMAX 4K</text>
+
+  <rect x="110" y="24" width="70" height="22" rx="4" fill="#00D2FF" fill-opacity="0.2" stroke="#00D2FF" stroke-width="1" />
+  <text x="145" y="39" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#00D2FF" text-anchor="middle" letter-spacing="1">60 FPS</text>
+
+  <text x="24" y="530" font-family="'Inter', sans-serif" font-size="24" font-weight="900" fill="#ffffff" letter-spacing="0.5">GALACTIC ODYSSEY</text>
+  <text x="24" y="555" font-family="'Inter', sans-serif" font-size="12" font-weight="500" fill="#94A3B8" letter-spacing="1.5">DEEP SPACE EXPLORATION • EP. 04</text>
+  <text x="24" y="575" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#818CF8">CODEC: AV1 10-BIT ENHANCED</text>
+</svg>

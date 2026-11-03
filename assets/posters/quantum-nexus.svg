@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="qBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#02030a" />
+      <stop offset="50%" stop-color="#091326" />
+      <stop offset="100%" stop-color="#050a14" />
+    </linearGradient>
+    <linearGradient id="tesseractGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D2FF" />
+      <stop offset="50%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#818CF8" />
+    </linearGradient>
+    <filter id="qBlur">
+      <feGaussianBlur stdDeviation="10" result="b1"/>
+      <feMerge>
+        <feMergeNode in="b1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="400" height="600" fill="url(#qBg)" />
+
+  <!-- Quantum Particle Vortex Lines -->
+  <g fill="none" stroke="#00D2FF" stroke-opacity="0.3" stroke-width="1.2">
+    <circle cx="200" cy="270" r="160" stroke-dasharray="10 15" />
+    <circle cx="200" cy="270" r="130" stroke-dasharray="6 12" />
+    <circle cx="200" cy="270" r="100" stroke-dasharray="4 8" />
+    <circle cx="200" cy="270" r="70" stroke-dasharray="2 6" />
+  </g>
+
+  <!-- 3D Geometric Hypercube / Tesseract Wireframe Projection -->
+  <!-- Outer Cube -->
+  <polygon points="130,190 270,190 320,230 180,230" fill="none" stroke="#38BDF8" stroke-width="2" opacity="0.8" />
+  <polygon points="130,330 270,330 320,370 180,370" fill="none" stroke="#38BDF8" stroke-width="2" opacity="0.8" />
+  <line x1="130" y1="190" x2="130" y2="330" stroke="#38BDF8" stroke-width="2" opacity="0.8" />
+  <line x1="270" y1="190" x2="270" y2="330" stroke="#38BDF8" stroke-width="2" opacity="0.8" />
+  <line x1="320" y1="230" x2="320" y2="370" stroke="#38BDF8" stroke-width="2" opacity="0.8" />
+  <line x1="180" y1="230" x2="180" y2="370" stroke="#38BDF8" stroke-width="2" opacity="0.8" />
+
+  <!-- Inner Cube -->
+  <polygon points="175,235 225,235 245,255 195,255" fill="none" stroke="#00D2FF" stroke-width="2.5" filter="url(#qBlur)" />
+  <polygon points="175,285 225,285 245,305 195,305" fill="none" stroke="#00D2FF" stroke-width="2.5" filter="url(#qBlur)" />
+  <line x1="175" y1="235" x2="175" y2="285" stroke="#00D2FF" stroke-width="2.5" filter="url(#qBlur)" />
+  <line x1="225" y1="235" x2="225" y2="285" stroke="#00D2FF" stroke-width="2.5" filter="url(#qBlur)" />
+  <line x1="245" y1="255" x2="245" y2="305" stroke="#00D2FF" stroke-width="2.5" filter="url(#qBlur)" />
+  <line x1="195" y1="255" x2="195" y2="305" stroke="#00D2FF" stroke-width="2.5" filter="url(#qBlur)" />
+
+  <!-- Diagonal Connector Beams -->
+  <line x1="130" y1="190" x2="175" y2="235" stroke="#818CF8" stroke-width="1.8" opacity="0.9" />
+  <line x1="270" y1="190" x2="225" y2="235" stroke="#818CF8" stroke-width="1.8" opacity="0.9" />
+  <line x1="320" y1="230" x2="245" y2="255" stroke="#818CF8" stroke-width="1.8" opacity="0.9" />
+  <line x1="180" y1="230" x2="195" y2="255" stroke="#818CF8" stroke-width="1.8" opacity="0.9" />
+  <line x1="130" y1="330" x2="175" y2="285" stroke="#818CF8" stroke-width="1.8" opacity="0.9" />
+  <line x1="270" y1="330" x2="225" y2="285" stroke="#818CF8" stroke-width="1.8" opacity="0.9" />
+  <line x1="320" y1="370" x2="245" y2="305" stroke="#818CF8" stroke-width="1.8" opacity="0.9" />
+  <line x1="180" y1="370" x2="195" y2="305" stroke="#818CF8" stroke-width="1.8" opacity="0.9" />
+
+  <!-- Core Glowing Singularity -->
+  <circle cx="210" cy="270" r="18" fill="#ffffff" filter="url(#qBlur)" opacity="0.9" />
+  <circle cx="210" cy="270" r="8" fill="#00D2FF" />
+
+  <!-- Badges -->
+  <rect x="24" y="24" width="76" height="22" rx="4" fill="#00D2FF" fill-opacity="0.2" stroke="#00D2FF" stroke-width="1" />
+  <text x="62" y="39" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#00D2FF" text-anchor="middle" letter-spacing="1">SPATIAL</text>
+
+  <text x="24" y="530" font-family="'Inter', sans-serif" font-size="24" font-weight="900" fill="#ffffff" letter-spacing="0.5">QUANTUM NEXUS</text>
+  <text x="24" y="555" font-family="'Inter', sans-serif" font-size="12" font-weight="500" fill="#94A3B8" letter-spacing="1.5">MULTIVERSE SPECULATIVE DOCU</text>
+  <text x="24" y="575" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#38BDF8">HARDWARE PASS-THROUGH 7.1</text>
+</svg>
