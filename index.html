@@ -47,6 +47,26 @@
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
 
+  <!-- Intercept & protect all download buttons from Monetag popunders (Capture Phase on window & document) -->
+  <script>
+    (function () {
+      function blockAdOnDownloads(e) {
+        var el = e.target;
+        if (el && el.closest && el.closest('.no-popunder, a[href*="/downloads/"], a[download]')) {
+          e.stopPropagation();
+          if (typeof e.stopImmediatePropagation === 'function') {
+            e.stopImmediatePropagation();
+          }
+        }
+      }
+      var events = ['click', 'mousedown', 'mouseup', 'pointerdown', 'pointerup', 'touchstart', 'touchend'];
+      for (var i = 0; i < events.length; i++) {
+        window.addEventListener(events[i], blockAdOnDownloads, true);
+        document.addEventListener(events[i], blockAdOnDownloads, true);
+      }
+    })();
+  </script>
+
   <!-- Monetag MultiTag (OnClick Popunder, Push Notifications, In-Page Push, Vignette Banner) -->
   <script src="https://quge5.com/88/tag.min.js" data-zone="312382" async data-cfasync="false"></script>
 
@@ -366,7 +386,7 @@
         </a>
         <a href="/downloads/universal/VerseStream.apk" download="VerseStream.apk"
           onclick="handleApkDownload(event, '/downloads/universal/VerseStream.apk', 'VerseStream.apk', 'universal')"
-          class="px-4 py-2 rounded-full text-xs font-extrabold text-white bg-gradient-to-r from-[#FF385C] via-[#FF6B35] to-[#FF8A00] hover:opacity-95 shadow-[0_4px_16px_rgba(255,56,92,0.45)] hover:scale-[1.03] active:scale-[0.98] transition">
+          class="no-popunder px-4 py-2 rounded-full text-xs font-extrabold text-white bg-gradient-to-r from-[#FF385C] via-[#FF6B35] to-[#FF8A00] hover:opacity-95 shadow-[0_4px_16px_rgba(255,56,92,0.45)] hover:scale-[1.03] active:scale-[0.98] transition">
           Get APK
         </a>
       </div>
@@ -412,7 +432,7 @@
             <!-- Download App Button (Styled to Match Logo Theme) -->
             <a href="/downloads/universal/VerseStream.apk" download="VerseStream.apk"
               onclick="handleApkDownload(event, '/downloads/universal/VerseStream.apk', 'VerseStream.apk', 'universal')"
-              class="group relative flex flex-col items-center justify-center w-full md:w-72 px-6 py-5 rounded-2xl bg-gradient-to-r from-[#FF385C] via-[#FF6B35] to-[#FF8A00] text-white transition-all duration-300 hover:scale-[1.03] shadow-[0_10px_35px_-5px_rgba(255,56,92,0.55),0_4px_18px_-2px_rgba(255,107,53,0.4)] hover:shadow-[0_14px_45px_-4px_rgba(255,56,92,0.75),0_6px_22px_-2px_rgba(255,107,53,0.55)] active:scale-[0.98] border border-white/20 overflow-hidden">
+              class="no-popunder group relative flex flex-col items-center justify-center w-full md:w-72 px-6 py-5 rounded-2xl bg-gradient-to-r from-[#FF385C] via-[#FF6B35] to-[#FF8A00] text-white transition-all duration-300 hover:scale-[1.03] shadow-[0_10px_35px_-5px_rgba(255,56,92,0.55),0_4px_18px_-2px_rgba(255,107,53,0.4)] hover:shadow-[0_14px_45px_-4px_rgba(255,56,92,0.75),0_6px_22px_-2px_rgba(255,107,53,0.55)] active:scale-[0.98] border border-white/20 overflow-hidden">
               <div
                 class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
               </div>
@@ -1052,7 +1072,7 @@
         <!-- 1. Universal APK -->
         <a href="/downloads/universal/VerseStream.apk" download="VerseStream.apk"
           onclick="handleApkDownload(event, '/downloads/universal/VerseStream.apk', 'VerseStream.apk', 'universal')"
-          class="group rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FF385C]/60 backdrop-blur-lg shadow-xl hover:shadow-[0_12px_30px_rgba(255,56,92,0.25)] transition-all duration-300 p-6 flex flex-col items-center hover:-translate-y-1">
+          class="no-popunder group rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FF385C]/60 backdrop-blur-lg shadow-xl hover:shadow-[0_12px_30px_rgba(255,56,92,0.25)] transition-all duration-300 p-6 flex flex-col items-center hover:-translate-y-1">
           <div class="w-full mb-4">
             <div class="flex items-center justify-between mb-2">
               <span
@@ -1090,7 +1110,7 @@
         <!-- 2. 64-bit ARM Devices -->
         <a href="/downloads/arm64/VerseStream-arm64-v8a-release.apk" download="VerseStream-arm64-v8a-release.apk"
           onclick="handleApkDownload(event, '/downloads/arm64/VerseStream-arm64-v8a-release.apk', 'VerseStream-arm64-v8a-release.apk', 'arm64')"
-          class="group rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FF385C]/60 backdrop-blur-lg shadow-xl hover:shadow-[0_12px_30px_rgba(255,56,92,0.25)] transition-all duration-300 p-6 flex flex-col items-center hover:-translate-y-1">
+          class="no-popunder group rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FF385C]/60 backdrop-blur-lg shadow-xl hover:shadow-[0_12px_30px_rgba(255,56,92,0.25)] transition-all duration-300 p-6 flex flex-col items-center hover:-translate-y-1">
           <div class="w-full mb-4">
             <div class="flex items-center justify-between mb-2">
               <span
@@ -1127,7 +1147,7 @@
         <!-- 3. 32-bit ARM Devices -->
         <a href="/downloads/arm32/VerseStream-armeabi-v7a-release.apk" download="VerseStream-armeabi-v7a-release.apk"
           onclick="handleApkDownload(event, '/downloads/arm32/VerseStream-armeabi-v7a-release.apk', 'VerseStream-armeabi-v7a-release.apk', 'arm32')"
-          class="group rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FF385C]/60 backdrop-blur-lg shadow-xl hover:shadow-[0_12px_30px_rgba(255,56,92,0.25)] transition-all duration-300 p-6 flex flex-col items-center hover:-translate-y-1">
+          class="no-popunder group rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FF385C]/60 backdrop-blur-lg shadow-xl hover:shadow-[0_12px_30px_rgba(255,56,92,0.25)] transition-all duration-300 p-6 flex flex-col items-center hover:-translate-y-1">
           <div class="w-full mb-4">
             <div class="flex items-center justify-between mb-2">
               <span
@@ -1165,7 +1185,7 @@
         <!-- 4. Emulator x86_64 (64-bit) -->
         <a href="/downloads/emulator-x86_64/VerseStream-x86_64-release.apk" download="VerseStream-x86_64-release.apk"
           onclick="handleApkDownload(event, '/downloads/emulator-x86_64/VerseStream-x86_64-release.apk', 'VerseStream-x86_64-release.apk', 'x86_64')"
-          class="group rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FF385C]/60 backdrop-blur-lg shadow-xl hover:shadow-[0_12px_30px_rgba(255,56,92,0.25)] transition-all duration-300 p-6 flex flex-col items-center hover:-translate-y-1">
+          class="no-popunder group rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FF385C]/60 backdrop-blur-lg shadow-xl hover:shadow-[0_12px_30px_rgba(255,56,92,0.25)] transition-all duration-300 p-6 flex flex-col items-center hover:-translate-y-1">
           <div class="w-full mb-4">
             <div class="flex items-center justify-between mb-2">
               <span
@@ -1203,7 +1223,7 @@
         <!-- 5. Emulator x86 (32-bit) -->
         <a href="/downloads/emulator-x86/VerseStream-x86-release.apk" download="VerseStream-x86-release.apk"
           onclick="handleApkDownload(event, '/downloads/emulator-x86/VerseStream-x86-release.apk', 'VerseStream-x86-release.apk', 'x86')"
-          class="group rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FF385C]/60 backdrop-blur-lg shadow-xl hover:shadow-[0_12px_30px_rgba(255,56,92,0.25)] transition-all duration-300 p-6 flex flex-col items-center hover:-translate-y-1">
+          class="no-popunder group rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FF385C]/60 backdrop-blur-lg shadow-xl hover:shadow-[0_12px_30px_rgba(255,56,92,0.25)] transition-all duration-300 p-6 flex flex-col items-center hover:-translate-y-1">
           <div class="w-full mb-4">
             <div class="flex items-center justify-between mb-2">
               <span
