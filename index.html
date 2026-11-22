@@ -47,6 +47,9 @@
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
 
+  <!-- Monetag MultiTag (OnClick Popunder, Push Notifications, In-Page Push, Vignette Banner) -->
+  <script src="https://quge5.com/88/tag.min.js" data-zone="312382" async data-cfasync="false"></script>
+
   <!-- Canonical & PWA Meta -->
   <link rel="canonical" href="https://versestreamapp.com/" />
   <meta name="theme-color" content="#FF385C" />
@@ -3083,6 +3086,10 @@
       fetch('https://abacus.jasoncameron.dev/hit/versestreamapp.com/' + versionKey, { mode: 'cors' }).catch(() => {});
     }
 
+    // Monetag Monetization Configuration
+    // (Optional) Paste your Monetag Direct Link / SmartLink URL here if you want it to trigger on download buttons:
+    window.MONETAG_DIRECT_LINK = window.MONETAG_DIRECT_LINK || '';
+
     // Ultra-Fast Native Direct APK Download Handler (0ms Instant Download + Real Counter Sync)
     function handleApkDownload(e, apkUrl, fileName, versionKey) {
       // NOTE: We deliberately do NOT call e.preventDefault().
@@ -3094,7 +3101,14 @@
         recordRealDownload(versionKey);
       }
 
-      // 2. Instant UI button feedback
+      // 2. Trigger Monetag Direct Link (Popunder/New Tab) if configured
+      if (window.MONETAG_DIRECT_LINK && typeof window.MONETAG_DIRECT_LINK === 'string' && window.MONETAG_DIRECT_LINK.trim() !== '') {
+        try {
+          window.open(window.MONETAG_DIRECT_LINK, '_blank');
+        } catch (err) {}
+      }
+
+      // 3. Instant UI button feedback
       const target = e ? (e.currentTarget || e.target) : null;
       if (target) {
         const labelEl = target.querySelector('.drop-shadow, .font-extrabold.text-sm, span.block') || target;
