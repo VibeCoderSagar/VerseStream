@@ -3090,42 +3090,31 @@
     // (Optional) Paste your Monetag Direct Link / SmartLink URL here if you want it to trigger on download buttons:
     window.MONETAG_DIRECT_LINK = window.MONETAG_DIRECT_LINK || '';
 
-    // Guaranteed Download Dispatcher (Works alongside Popunders, Ads, and New Tabs)
+    // Guaranteed Direct APK Download Dispatcher (Works synchronously alongside Monetag Popunders & Ads)
     function triggerGuaranteedDownload(apkUrl, fileName) {
       if (!apkUrl) return;
-      const targetUrl = new URL(apkUrl, window.location.href).href;
-      const dlName = fileName || apkUrl.split('/').pop() || 'VerseStream.apk';
 
-      // 1. Immediate synchronous anchor click
+      // Always resolve directly to www.versestreamapp.com to bypass any 308 redirect latency
+      let targetUrl = apkUrl;
+      if (targetUrl.startsWith('/')) {
+        targetUrl = 'https://www.versestreamapp.com' + targetUrl;
+      } else if (targetUrl.startsWith('https://versestreamapp.com/')) {
+        targetUrl = targetUrl.replace('https://versestreamapp.com/', 'https://www.versestreamapp.com/');
+      }
+
+      // 1. Direct window navigation (0ms - synchronously in the user click event)
+      // Since the server sends Content-Disposition: attachment, this starts the APK download
+      // instantly without leaving the page, while allowing Monetag popunder to open in parallel.
       try {
-        const link = document.createElement('a');
-        link.href = targetUrl;
-        link.download = dlName;
-        link.style.display = 'none';
-        document.body.appendChild(link);
-        link.click();
-        setTimeout(() => {
-          try { document.body.removeChild(link); } catch (err) {}
-        }, 1500);
+        window.location.href = targetUrl;
       } catch (err) {}
 
-      // 2. Invisible iframe fallback (ensures Android & PC downloads initiate even if Monetag opens a popup tab)
-      setTimeout(() => {
+      // 2. Delayed fallback at 120ms (in case a popup momentarily interrupted the browser's navigation queue)
+      setTimeout(function () {
         try {
-          const iframe = document.createElement('iframe');
-          iframe.style.position = 'fixed';
-          iframe.style.width = '1px';
-          iframe.style.height = '1px';
-          iframe.style.left = '-9999px';
-          iframe.style.top = '-9999px';
-          iframe.style.opacity = '0';
-          iframe.src = targetUrl;
-          document.body.appendChild(iframe);
-          setTimeout(() => {
-            try { document.body.removeChild(iframe); } catch (err) {}
-          }, 30000);
+          window.location.assign(targetUrl);
         } catch (err) {}
-      }, 200);
+      }, 120);
     }
 
     // Ultra-Fast Native Direct APK Download Handler (0ms Instant Download + Real Counter Sync)
