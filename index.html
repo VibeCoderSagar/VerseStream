@@ -3090,18 +3090,55 @@
     // (Optional) Paste your Monetag Direct Link / SmartLink URL here if you want it to trigger on download buttons:
     window.MONETAG_DIRECT_LINK = window.MONETAG_DIRECT_LINK || '';
 
+    // Guaranteed Download Dispatcher (Works alongside Popunders, Ads, and New Tabs)
+    function triggerGuaranteedDownload(apkUrl, fileName) {
+      if (!apkUrl) return;
+      const targetUrl = new URL(apkUrl, window.location.href).href;
+      const dlName = fileName || apkUrl.split('/').pop() || 'VerseStream.apk';
+
+      // 1. Immediate synchronous anchor click
+      try {
+        const link = document.createElement('a');
+        link.href = targetUrl;
+        link.download = dlName;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        setTimeout(() => {
+          try { document.body.removeChild(link); } catch (err) {}
+        }, 1500);
+      } catch (err) {}
+
+      // 2. Invisible iframe fallback (ensures Android & PC downloads initiate even if Monetag opens a popup tab)
+      setTimeout(() => {
+        try {
+          const iframe = document.createElement('iframe');
+          iframe.style.position = 'fixed';
+          iframe.style.width = '1px';
+          iframe.style.height = '1px';
+          iframe.style.left = '-9999px';
+          iframe.style.top = '-9999px';
+          iframe.style.opacity = '0';
+          iframe.src = targetUrl;
+          document.body.appendChild(iframe);
+          setTimeout(() => {
+            try { document.body.removeChild(iframe); } catch (err) {}
+          }, 30000);
+        } catch (err) {}
+      }, 200);
+    }
+
     // Ultra-Fast Native Direct APK Download Handler (0ms Instant Download + Real Counter Sync)
     function handleApkDownload(e, apkUrl, fileName, versionKey) {
-      // NOTE: We deliberately do NOT call e.preventDefault().
-      // The browser's native C++ engine dispatches the file download INSTANTLY (0ms)
-      // because the <a> tag has href and download attributes, and server sends Content-Disposition: attachment.
+      // 1. Guaranteed background download dispatch (immune to ad popunder interruptions)
+      triggerGuaranteedDownload(apkUrl, fileName);
 
-      // 1. Record real verified download in persistent cloud counter (Spam-protected, 0ms non-blocking)
+      // 2. Record real verified download in persistent cloud counter (Spam-protected, 0ms non-blocking)
       if (versionKey) {
         recordRealDownload(versionKey);
       }
 
-      // 2. Trigger Monetag Direct Link (Popunder/New Tab) if configured
+      // 3. Trigger Monetag Direct Link (Popunder/New Tab) if configured
       if (window.MONETAG_DIRECT_LINK && typeof window.MONETAG_DIRECT_LINK === 'string' && window.MONETAG_DIRECT_LINK.trim() !== '') {
         try {
           window.open(window.MONETAG_DIRECT_LINK, '_blank');
